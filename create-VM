@@ -1,1 +1,41 @@
+Compute Engine allows you to create virtual machines (VMs) that run different operating systems, including multiple flavors of Linux (Debian, Ubuntu, Suse, Red Hat, CoreOS) and Windows Server, on Google infrastructure. You can run thousands of virtual CPUs on a system that is designed to be fast and to offer strong consistency of performance.
+
+In this hands-on lab, you create VM instances of various machine types using the Google Cloud console and the gcloud command line in Cloud Shell. You also learn how to connect an NGINX web server to your VM.
+
+Although you can easily copy and paste commands from the lab to the appropriate place, it is recommended that you type the commands yourself to reinforce your understanding of the core concepts.
+
+A region is a specific geographical location where you can run your resources. Each region has one or more zones. For example, the us-central1 region denotes a region in the Central United States that 
+has zones us-central1-a, us-central1-b, us-central1-c, and us-central1-f.
+
+Regions	Zones
+Western US	us-west1-a, us-west1-b
+Central US	us-central1-a, us-central1-b, us-central1-d, us-central1-f
+Eastern US	us-east1-b, us-east1-c, us-east1-d
+Western Europe	europe-west1-b, europe-west1-c, europe-west1-d
+Eastern Asia	asia-east1-a, asia-east1-b, asia-east1-c
+
+student_01_3f15bb4af367@cloudshell:~ (qwiklabs-gcp-03-8efb2b53d3fc)$ gcloud config list project
+[core]
+project = qwiklabs-gcp-03-8efb2b53d3fc
+
+Your active configuration is: [cloudshell-32512]
+student_01_3f15bb4af367@cloudshell:~ (qwiklabs-gcp-03-8efb2b53d3fc)$ 
+
+sudo apt-get install -y nginx
+
+student_01_3f15bb4af367@cloudshell:~ (qwiklabs-gcp-03-8efb2b53d3fc)$ export REGION=us-east1
+student_01_3f15bb4af367@cloudshell:~ (qwiklabs-gcp-03-8efb2b53d3fc)$ export ZONE=us-east1-c
+student_01_3f15bb4af367@cloudshell:~ (qwiklabs-gcp-03-8efb2b53d3fc)$ gcloud compute instances create gcelab2 --machine-type e2-medium --zone=$ZONE
+Created [https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-03-8efb2b53d3fc/zones/us-east1-c/instances/gcelab2].
+NAME: gcelab2
+ZONE: us-east1-c
+MACHINE_TYPE: e2-medium
+PREEMPTIBLE: 
+INTERNAL_IP: 10.142.0.3
+EXTERNAL_IP: 34.75.138.22
+STATUS: RUNNING
+student_01_3f15bb4af367@cloudshell:~ (qwiklabs-gcp-03-8efb2b53d3fc)$ 
+
+
+
 
